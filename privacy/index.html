@@ -1,0 +1,569 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title></title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows'>
+<div id='write'  class=''><h1><a name="deep-booster-privacy-policy" class="md-header-anchor"></a><strong><span>Deep Booster</span></strong><span> </span><strong><span>Privacy Policy</span></strong></h1><h2><a name="1overview" class="md-header-anchor"></a><span>1.</span><strong><span>Overview</span></strong></h2><p><span>Deep Booster (this “Product”)(“Deep Booster” “We” or “us”). We fully respect and protect users’ personal privacy. While providing you with quality services, we will collect, use, disclose, store and protect your personal data in accordance with this Privacy Policy (the “Policy”).</span></p><p><span>We will explain how we process your personal data in this Policy and how you may access and control your personal data.</span></p><p><span>Please completely read and fully understand this Policy before using this Product. If you have any questions about this Policy, or have any complaints or suggestions, please contact us via the methods as described in this Policy. This policy will help you understand the followings:</span></p><p><strong><span>How We Collect and Use Your Personal Data</span></strong></p><p><strong><span>How We Use Cookie and Similar Technologies</span></strong></p><p><span>How We Share, Transfer and Disclose Your Personal Data</span></p><p><strong><span>Process Your Personal Data Using Third Party Services</span></strong></p><p><span>How We Protect Your Personal Data</span></p><p><span>How You Access and Control Your Personal Data</span></p><p><strong><span>How We Process the Minor’s Data</span></strong></p><p><strong><span>How Your Personal Data Is Transferred Globally</span></strong></p><p><span>Contact Us</span></p><p><span>Update of Privacy Policy</span></p><h2><a name="2how-we-collect-and-use-your-personal-data" class="md-header-anchor"></a><span>2.</span><strong><span>How We Collect and Use Your Personal Data</span></strong></h2><p><span>We may collect your personal data as follows while we are providing services. These data is critical for us to realize various functions of this Product. We will use these data to help us develop and improve our products to provide better services. We will use your personal data in strict compliance with the purposes set forth in this Policy. We will inform you in advance and obtain your consent before we use these data for any other purposes than set forth in this Policy or we use the personal data collected for specific purposes for other purposes.</span></p><p><strong><span>2.1.</span></strong><span> </span><strong><span>Category and purpose of your personal data we collect</span></strong></p><p><span>This Product is a full functionality security product with rich content and services. We will collect different categories of your personal data in different scenarios according to various product features, and will use these data to realize such product features.</span></p><p><strong><span>2.1.1.</span></strong><span> </span><strong><span>Phone Boost</span></strong></p><p><span>Clean unnecessary apps running in background to free up memory, Deep Booster can intelligently clean background processes, stop stealthy running apps and disable stealthy auto-start apps even on non-root devices. freeing up RAM</span></p><p><strong><span>2.1.2.</span></strong><span> </span><strong><span>Junk Clean</span></strong></p><p><span>Deep Booster is clean master. Analyze all of your apps, photo junk, video junk, cache junk, and residual junk... to prevent your phone from running slowly or lagging. Absolutely, Laggy issues as well as running slow will be effectively alleviated. Cleaner can help boost and optimize your phone&#39;s speed and performance.</span></p><p><strong><span>2.1.3.</span></strong><span> </span><strong><span>Notification Cleaner</span></strong></p><p><span>There are always many annoying notifications when we use the phone. Deep Booster is clean master. Analyze all of your apps, Manage and organize notifications effectively, reduce interruptions, create a smooth, clean and fast phone experience.,to prevent your phone from running slowly or lagging helps to gather all the useless notifications to make them quiet and clean, phone being more efficient.</span></p><p><strong><span>2.1.4.</span></strong><span> </span><strong><span>App Manager</span></strong></p><p><span>Remove apps you don’t use to save more space, and boost/speed up your phone.</span></p><p><strong><span>2.1.5.</span></strong><span> </span><strong><span>Battery Saver</span></strong></p><p><span>Scan application information in your mobile and prolong battery stand-by time by shutting down useless process and freezing self-starting applications completely</span></p><p><strong><span>2.2.</span></strong><span> </span><strong><span>Your personal data we obtain from a third party</span></strong></p><p><span>For now, we do not obtain your personal data from any third party. If certain services may require your personal data from a third party, we will notify you in advance and obtain your consent.</span></p><p><strong><span>2.3.</span></strong><span> </span><strong><span>What permissions do we use to get your data</span></strong></p><p><strong><span>Read phone status and identity</span></strong></p><p><span>This permission is used to acquire a unique ID of each device, and we will then apply a non-invertible encryption on the data. It does not include any personal identity information.</span></p><p><strong><span>Read the contents of USB storage</span></strong></p><p><span>Used in our junk files cleaning feature to scan junk from device’s hard drive.</span></p><p><strong><span>Modify or delete the contents of USB storage</span></strong>
+<span>Used in our junk files cleaning feature to remove junk from device’s hard drive.</span></p><p><strong><span>Find accounts on the device</span></strong></p><p><span>Used to check if user has logged in to Google Play, and provide the corresponding installation and download services.</span></p><p><strong><span>Read Google service configuration</span></strong></p><p><span>Used to retrieve anonymous advertising ID so as to provide high-accuracy advertising recommendation service.</span></p><p><strong><span>Full network access.</span></strong></p><p><span>Used to achieve network-based services, e.g. performing version update notification. GPRS traffic may be needed.</span></p><p><strong><span>Check network connections</span></strong></p><p><span>Used in our smart settings and quick access function to check network connections.</span></p><p><strong><span>Modify network connectivity</span></strong></p><p><span>Used in our smart settings and quick access function in notification bar to turn on/off cellular data.</span></p><p><strong><span>Check Wi-Fi connections</span></strong></p><p><span>Used in our smart settings and quick access function to check Wi-Fi connection.</span></p><p><strong><span>Access Bluetooth settings</span></strong>
+<span>Used in our smart settings, turning on/off Bluetooth connection.</span></p><p><strong><span>Close other apps</span></strong></p><p><span>Used to close apps running in background with 1-Tap Acceleration.</span></p><p><strong><span>Retrieve running apps</span></strong>
+<span>Used to check running apps with 1-Tap Acceleration .</span></p><p><strong><span>Run at startup</span></strong>
+<span>Used to wake cleaning and app lock services at device startup.</span></p><p><strong><span>Draw over other apps</span></strong>
+<span>Used to provide floating window feature as well as displaying windows over other apps when using memory boost feature.</span></p><p><strong><span>Read sync settings</span></strong>
+<span>Used to provide battery saver feature, checking sync status to save power; Used to support app lock feature, to retrieve forgotten password through email.</span></p><p><strong><span>Toggle sync on and off</span></strong></p><p><span>Used to support battery saver feature to toggle on/off sync.</span></p><p><strong><span>Install shortcuts</span></strong>
+<span>Used to create shortcuts on other launcher’s home that users may continue to use booster services。</span></p><p><strong><span>Measure app storage space</span></strong></p><p><span>Used in our apps management feature, retrieving the amount of storage used by other apps.</span></p><p><strong><span>Uninstall shortcuts</span></strong>
+<span>Remove app shortcuts on other launchers.</span></p><p><strong><span>Receive data from Internet</span></strong></p><p><span>Allows programs to receive data from internet in order to provide immediate content updates.</span></p><p><strong><span>Read, modify or delete contents on SD card</span></strong></p><p><span>Allows apps to read and modify contents in SD card as user instructions.</span></p><p><strong><span>Read or modify system settings</span></strong></p><p><span>Used to support battery saver feature to control and adjust vibration, screen rotation and screen brightness, and we may use this permission to read device’s default input method.</span></p><p><strong><span>Use of system-level dialog</span></strong></p><p><span>Used for confirmation process in feature settings.</span></p><p><strong><span>Retrieve recently used applications</span></strong></p><p><span>When providing app lock feature, this permission is needed to monitor the app that is currently displayed on the platform.</span></p><p><strong><span>Use of Accessibility Service</span></strong></p><p><span>To improve phone performance even further and keep users away from malicious Websites , this app needs to retrieve window content of apps such as Settings ,third-party browsers etc and sometimes perform actions on behalf of users ,but no information will be uploaded . With accessibility service , this app can find and click “force stop” button in application details page to stop an specific app , also “clear system cache” button in storage settings to free up storage and &quot;app standby &quot; button in development settings to frezze apps. This app may retrive url in browsers to check if it is safe to visit while Websites protection is on. Users don’t have to worry about their privacy , because we will never ever upload any of those information.</span></p><p><strong><span>Delete system’s cache</span></strong></p><p><span>Used to provide junk files cleaning feature with removing system’s cache data.</span></p><p><strong><span>Information Automatically Collected Through the Service.</span></strong></p><p><span>We automatically collect information about you when you use the Service. If you access the Service through a mobile device, we may be able to identify the general location of your mobile device. We will collect information including, but not limited to: your mobile device’s brand, model, operating system, resolution, screen size, system version, Bluetooth settings, internet connection, RAM, history, the apps(including application details) you have installed, the apps you have running in the background, mobile device’s Android Advertising ID, along with your account activation time, content displayed to you and whether you clicked on it, advertisements displayed to you and whether you clicked on them, URLs you have visited, notifications that have appeared on your mobile device, your IP address, your mobile country code, and your identity. We will also request access to your photos, media and files, your device’s camera and microphone, your Wi-Fi connection information and your device ID and call information. You may be able to limit the amount of information collected from your device (phone, or tablet) with us by adjusting your mobile device’s settings. We may upload the above stated information to our own server for the purpose of making sure that our app’s functionalities can run as expected, like booster and cache cleaner. We do not, in any way, share this information with any other parties.</span></p><p><strong><span>Had you enjoyed our service and provided with us your account, password or other personal information, we will only use such information for our own service in accordance with the purpose we committed in this policy. If you disclose any your Google account information, we will only visit your Google account with your consent, and the usage of such information shall be subject to this policy.</span></strong></p><p><strong><span>Directory names on sdcard</span></strong></p><p><span>We collect the encoded directory names to identify if it can be delete safely. None of the directory names will be exposed to anyone or any institution.</span></p><p><strong><span>SMS, contact and account information</span></strong></p><p><span>(1) Read your contauls</span>
+<span>Used to display contact name of missed calls or SMS on lock screen. No contact identified information will be collected.</span></p><p><span>(2) Send and view SMS</span>
+<span>Used in messaging service in Smart Locker, including receive, reply. No Message content will be collected.</span></p><p><span>(3) Read call log</span>
+<span>Used in phone call service in Smart Locker, including display phone number and time of missed calls, and users can spontaneously change status of missed calls. No calls information will be collected.</span></p><p><span>(4) Information you give us</span></p><p><span>Many of our services require you to sign up for a Account. When you do, we’ll ask for personal information, like your name, email address, telephone number to store with your account.</span></p><p><span>Whenever you use our services, we aim to provide you with access to your personal information. If that information is wrong, we strive to give you ways to update it quickly or to delete it – unless we have to keep that information for legitimate business or legal purposes.</span></p><p><span>We aim to maintain our services in a manner that protects information from accidental or malicious destruction. Because of this, after you delete information from our services, we may not immediately delete residual copies from our active servers and may not remove information from our backup systems.</span></p><p><span>Ⅱ. How we protect your information</span>
+<span>We will use commercially and technically reasonable means and efforts to properly arrange and protect your information, for example, to protect through use of newer asymmetric encryption techniques, to hold your personal information harmless from accidental loss, misuse, alteration, destruction, unauthorized access and disclosure, and so on. Except as required by law or expressly allowed herein, we will not disclose your personal information:</span></p><p><span>For legal reasons</span>
+<span>To disclose your information as required by law or administrative regulations, or the disclosure is necessary to comply with legal procedure served on Professional AntiVirus websites;</span></p><p><span>With your consent</span>
+<span>To disclose your information with authorization or consent given by yourself;</span></p><p><span>For user or public safety</span>
+<span>To protect Professional AntiVirus right, Professional AntiVirus users or public safety, to guarantee the safety of Professional AntiVirus customers and products in case of emergency;</span></p><p><span>With other agreement</span>
+<span>To comply with Professional AntiVirus related terms of services and software license agreement.</span></p><h2><a name="3-how-we-use-cookie-and-similar-technologies" class="md-header-anchor"></a><strong><span>3.</span></strong><span> </span><strong><span>How We Use Cookie and Similar Technologies</span></strong></h2><p><span>Cookie is a small piece of text sent to a browser by a website visited by a user. It helps the browser to record user access information, such as preferred language and other settings. In this way, users will have an easier and more practical experience when they visit the same website the next time. Cookie play a vital role. Without cookie, the user’s experience of Internet will be greatly reduced, and some website features or services may not even work properly. We use cookies to provide you with a complete web browsing service. We do not collect cookie information ourselves. Please note that the websites you visit may use cookie to store your preferences, settings, login status, etc. For example, when you visit a webpage that has a login function for the first time, you need to enter a user name and password to log in. After logging in, the website will record your login status, When you switch different pages under the site, you do not need to re-enter the user name and password, you can directly browse the content of the web page. Websites may use cookie to recommend advertisements. For example, some websites use cookie to record websites that you click on to prevent you from seeing duplicate advertisements. We provide the ability to disable and delete cookies. You can disable or delete cookies.</span></p><p><span>To make it easier for you to open web pages, we provide web page caching. We allow websites you visit to store some web page data, such as web page pictures and other information. When you visit the site next time, the site will directly read the saved data for display, thereby to open the webpage faste. The cache will expire due to expiration or manual removal. We will not upload any cached content.</span></p><h2><a name="4-how-we-share-transfer-and-disclose-your-personal-data" class="md-header-anchor"></a><strong><span>4.</span></strong><span> </span><strong><span>How We Share, Transfer and Disclose Your Personal Data</span></strong></h2><p><span>We will share with or transfer or disclose your personal data to a third party with your consent or explicit instructions. In addition, to improve the quality of our service, we may also share with or transfer or disclose your personal data to a third party under the following circumstances.</span></p><p><strong><span>4.1.</span></strong><span> </span><strong><span>Subsidiary Products</span></strong></p><p><span>We may share your personal data with our subsidiary products to provide a more consistent experience and better service. We guarantee that our subsidiary products will treat your personal data in accordance with the purposes and requirements shown in this Policy. We will obtain your prior consent again if our subsidiary products wish to use your personal data for purposes other than those set forth in this Policy.</span></p><p><strong><span>4.2.</span></strong><span> </span><strong><span>Affiliated Company</span></strong></p><p><span>We may share your personal data with our affiliated companies and will ensure their processing of your personal data is in compliance with the purposes and requirements of this Policy. We will obtain your prior consent again if affiliated companies intend to use your personal data for other purposes than set forth in this Policy.</span></p><p><strong><span>4.3. Third party service provider</span></strong></p><p><span>We may engage third party service providers to provide specific services. Third party service providers may collect data when providing services, and we will ensure that they follow our instructions, follow the purposes and requirements set out in this policy to process your personal data, and take appropriate confidentiality and security measures to safeguard data security.</span></p><p><strong><span>4.3.1. Attribution of installation channel</span></strong></p><p><span>In order to attribution of installation channel and provide you with better services, we use the services of a third party service provider. The service needs to obtain your information including: application package name, application version, application installation time, system version, Android ID, country information, mobile phone language information, mobile phone brand, mobile phone model. The information obtained is only used for this purpose.</span></p><p><strong><span>4.3.2 Visiting a Web Page</span></strong></p><p><span>In order to realize the function of browsing the webpage, we will request the content of the webpage according to the webpage link address you provided, and then display the content of the webpage returned by the server. In this process, website may collect your relevant data，such as user agent, cookies, browsing track and so on. In addition, to implement special functions in certain web pages, the website may use the browser to apply for the location of your address or mobile phone file information, for example: pictures that need to be uploaded to the avatar, and microphone information. After you authorize it, the website can display related functions.</span></p><p><strong><span>4.3.3. Attribution of installation channel</span></strong></p><p><span>In order to attribution of installation channel and provide you with better services, we use the services of a third party service provider. The service needs to obtain your information including: application package name, application version, application installation time and other applications Information; Android ID, country code , language, system version and other system information; power, charging type, sensor information, mobile brand, mobile phone Type, network information, CPU information and other device information. The information obtained is only used for this purpose.</span></p><p><strong><span>4.3.4. Anti-fraud and Anti-Cheat</span></strong></p><p><span>In order to prevent fraud and prevent cheating, and to provide you with better services and better ecological environment, we use Digital Union’s services. The service needs to obtain your information including: application package name, application time information, application version number, installation path, application size and other application information; CPU, screen resolution, total memory information and other hardware general information; country code, start-up time, system time and other system information; mobile phone brand, mobile phone model, memory, CPU and other equipment hardware information. The information obtained is only used for this purpose.</span></p><h3><a name="44-share-of-your-personal-data-as-required-by-law" class="md-header-anchor"></a><strong><span>4.4 Share of your personal data as required by law</span></strong></h3><p><span>Subject to compliance with this Policy, we may be required to share or disclose your personal data under certain circumstances, such as in accordance with laws and regulations, and compulsory requirements of government orders; to safeguard the legitimate rights and interests of yours, ours, and third parties; and to prevent or deal with fraud, secure or technical problems.</span></p><p><strong><span>4.5 Change of organization and existing status of our company</span></strong></p><p><span>For any change of the organization or existing status of our company (such as restructuring, merger or bankruptcy), your personal data may be transferred to the company entity after change or our affiliated company (the “Data Transferee”). The Data Transferee will continue to be bound by this Policy.</span></p><h2><a name="5-process-your-personal-data-using-third-party-services" class="md-header-anchor"></a><strong><span>5.</span></strong><span> </span><strong><span>Process Your Personal Data Using Third Party Services</span></strong></h2><p><span>The Product may contain a hyperlink directing to third party products or services, such as a hyperlink to another website. You may click the hyperlinks in this Product to access third party products or services. Meanwhile, we may also embed third party links in this Product and you may click these links to access or use third party products or services on the interface of this Product. We hereby remind you that when you access or use third party products or services via the above methods whereby your personal data will be obtained by such third party products or services, the privacy policies of such third party products or services will apply to such personal data.</span></p><p><span>In addition, we may use the third party interface to improve product function. For example, search module will request search engine interface based on the keyword input by user and obtain the search suggestions and keyword related webpage contents.</span></p><h2><a name="6-how-we-store-and-protect-your-personal-data" class="md-header-anchor"></a><strong><span>6.</span></strong><span> </span><strong><span>How We Store and Protect Your Personal Data</span></strong></h2><p><strong><span>6.1.</span></strong><span> </span><strong><span>Security protection of personal data</span></strong></p><p><span>We are committed to protecting your personal data. We have adopted all possible security technologies and procedures to protect your personal data against unauthorized access, use, revision, damage, destruction or disclosure. These security measures mainly include the following:</span></p><p><span>a） Your personal data is stored in the computer systems located in a controlled site with security measures such as encryption.</span></p><p><span>b） Only Deep Booster employees who have the necessity to process relevant data for the purpose of product operation are authorized to access your personal data and such employees are required to comply with strict confidentiality obligations.</span></p><p><span>c） We are constantly striving to ensure the security of your personal data, and we adopt encryption technologies during data transmission to prevent your information against unauthorized access, use, revision, damage, destruction or disclosure.</span></p><p><span>d） We are more prudential when we transmit and store special categories of your personal data and adopt encryption technologies and other security measures to ensure data security.</span></p><p><span>In case of personal data security incident, according to the requirements of relevant laws and regulations, we will promptly inform you via push notification, announcement, etc. the basic situations and possible influence of the security incident, response measures we have taken or will take, suggestions for you regarding self-prevention and risk reduction, remedial measures for you, etc. We will timely deal with system vulnerabilities, cyber-attacks, virus intrusion, and other security risks.</span></p><p><strong><span>6.2.</span></strong><span> </span><strong><span>Personal data storage term</span></strong></p><p><span>We will store your personal data for the necessary period for data collection and processing purposes. Beyond the above-mentioned period, we will delete or anonymize personal data.</span></p><p><span>The related data read through Phone Boost,Junk Clean, Notification Cleaner , App Manager, Battery Saver, are for recording mobile using status continually(eg, real time monitor function in booster, strange WiFi detect function in WiFi security)and optimizing operating speed of related functions. We save data to the local with storage period the same as lifecycle of software and promise never upload data to the server. You can even clear related data in software management under system setting at any time.</span></p><p><span>The data collected from above functions, including app information installed in mobile and SD card, app file information and virus information, are used for products continuous improvement (eg, close background app process by default in booster function ) and will be saved in the server for a long time. You can tell us the actions you need to do with data by clicking side bar&gt;settings&gt;personal data centert&gt;manage more data. We’ll delete and anonymize personal data. If you want to know more about the data we collected, please consult us by sending email to mailbox at the page bottom.</span></p><p><span>The access records, application execution logs, and application debug logs of the cloud service are stored on the server for a short period of time, typically 7 days. If this period expires, we will delete or anonymize the data.</span></p><p><span>Application usage data is pseudo-persistently stored on the server for data analysis. You can access, edit or delete your data in the manner described in section 7. : How to Access and Control Your Personal Data.</span></p><p><span>After you cancel your account, we may not be able to delete your personal data immediately due to technical reasons; however, we will delete it during the next system update, and we undertake not to process your personal data during the period between cancellation of your account and the next system update.</span></p><h2><a name="7-how-you-access-and-control-your-personal-data" class="md-header-anchor"></a><strong><span>7.</span></strong><span> </span><strong><span>How You Access and Control Your Personal Data</span></strong></h2><p><strong><span>7.1.</span></strong><span> </span><strong><span>Access and revise your personal data</span></strong></p><p><span>You can access and edit your personal data onlie in Deep Booster user information center.</span></p><p><strong><span>7.2.</span></strong><span> </span><strong><span>Change of your authorization scope</span></strong></p><p><span>You may select on the page of Deep Booster User Information Center to change your authorization scope for us to process your personal data. Please be minded that since all functions of the Product need certain basic personal data for normal operation, certain functions of the Product may not operate normally when you withdraw your consent to processing of some personal data.</span></p><p><span>When we receive your withdrawal of consent, we will no longer process your corresponding personal data.</span></p><p><strong><span>7.3.</span></strong><span> </span><strong><span>Rejection of interest-based advertising</span></strong></p><p><span>You may always choose whether to receive promotional emails, messages, calls, and mails from us or third parties. You may also choose to no longer receive personalized advertisements through Deep Booster User Information Center.</span></p><p><span>We will no longer use your personal data for the above-mentioned commercial promotion purposes when you refuse to receive interest-based advertisements. Non-personalized ads don’t use mobile ad identifiers for ad targeting, they do still use mobile ad identifiers for frequency capping, aggregated ad reporting, and to combat fraud and abuse.</span></p><p><strong><span>7.4.</span></strong><span> </span><strong><span>Delete your personal data</span></strong></p><p><span>You may submit a request to us to delete your personal data when:</span></p><p><span>a) Your personal data is no longer necessary for data collection or processing;</span></p><p><span>b) You have withdrawn your consent to our processing of your personal data ;</span></p><p><span>c) Your personal data has been processed illegally;</span></p><p><span>d) We are obligated to delete your personal data in accordance with the laws of EU members.</span></p><p><span>We may not be able to delete your personal data immediately due to technical reasons. We will delete it during the next system update. We will not process your personal data in any way during the period between your request of deleting your personal data and the next system update.</span></p><p><strong><span>7.5.</span></strong><span> </span><strong><span>Respond to your requests</span></strong></p><p><span>We may first verify your identity upon receipt of your request, and may request you to provide the necessary information for authentication.</span></p><p><span>We will respond to your request on the 30th day after we receive your request and communicate with you in an appropriate way. If necessary, we may extend it (by an additional 30-day at most), and will inform you of the reason for the extension of the deadline on the 30th day after receiving your request. If we have reasonable reasons to believe that no measures are needed to respond your request, we will inform you of our decision 30 days from the date of receipt of your request and provide you with appropriate explanation.</span></p><p><span>We will use best efforts to help you resolve relevant problems. If you are not satisfied with the response you received, you may refer the complaint to the relevant regulatory authority, or file a lawsuit before a competent judicial authority.</span></p><h2><a name="8-how-we-process-the-minors-data" class="md-header-anchor"></a><strong><span>8.</span></strong><span> </span><strong><span>How We Process the Minor’s Data</span></strong></h2><p><span>This Product is not intended for a minor under 16 years old (or equivalent minimum age set by the laws of EU members). We will only process the information of these minors to the extent permitted by law and with the consent of their guardians.</span></p><p><span>We will implement relevant technical measures and make our best efforts to verify whether the processing of minors’ information has been approved by their guardians. We will try to delete relevant data as soon as possible if we are aware that we have collected the personal data of a minor without the prior consent of their certified guardians.</span></p><h2><a name="9-contact-us" class="md-header-anchor"></a><strong><span>9.</span></strong><span> </span><strong><span>Contact Us</span></strong></h2><p><span>Please feel free to contact us at: </span><a href='mailto:DeepBooster@hotmail.com' target='_blank' class='url'>DeepBooster@hotmail.com</a><span> you have any question or suggestion about the Policy or find any violation of the Policy.</span></p><h2><a name="10-update-of-privacy-policy" class="md-header-anchor"></a><strong><span>10.</span></strong><span> </span><strong><span>Update of Privacy Policy</span></strong></h2><p><span>We reserve the right to revise or modify this Policy. For any update of this Policy, we will send you notice on the interface of this Product to remind you of relevant updates and indicate the updated provisions for your ease of reading. Please do completely read and fully understand the updated Privacy Policy. By continuing to use this Product, you will be deemed to have accepted the updated version of this Policy. We will not reduce your rights under this Policy without your explicit consent.</span></p><h2><a name="11-how-your-personal-data-is-transferred-globally" class="md-header-anchor"></a><strong><span>11.</span></strong><span> </span><strong><span>How Your Personal Data Is Transferred Globally</span></strong></h2><p><span>We provide Deep Booster products and services around the world, which means to conduct business globally, your personal data might be transmitted to a jurisdiction or accessed from such jurisdiction outside of the country/region where you use this Product. These jurisdictions include but are not limited to Singapore, United States, and China.</span></p><p><span>Please note that we only return demographic information to China and we do not include information on individual user identities. At the same time, in order to provide you with better services, our third party partners may transmit your data to other countries. For example, in order to detect robots or cheating, we have purchased a Chinese supplier’s traffic monitoring service. The merchant may return the user information to China in order to assist us in analyzing whether there is cheating in the user.</span></p><p><span>Personal data protection legislation in such jurisdiction might be different or even absent. Under such circumstance, we will adopt various measures to ensure security of your personal data. For instance, we will ask you for your explicit consent before transmission of your personal data, or implement security measures such as encryption and pseudonymisation during data transmission; when your personal data is transferred to such jurisdictions, we will apply the same protection of your personal data in accordance with the Policy. We will endeavor to protect your personal data with the measures stipulated in Article 46 and Article 47 of the EU General Data Protection Regulation.</span></p><p><span>Last updated: Nov 10, 2020</span></p></div>
+</body>
+</html>
